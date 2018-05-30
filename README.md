@@ -1,4 +1,4 @@
-##*Notee X*
+##Notee X
 
 trello: Will update
 Features: 
