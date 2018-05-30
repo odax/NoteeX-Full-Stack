@@ -1,6 +1,6 @@
 ##Notee X
 
-trello: Will update
+trello: https://trello.com/b/ypIBy8xe/notee-x-nalee-riddell
 
 Features: 
 -create new note
