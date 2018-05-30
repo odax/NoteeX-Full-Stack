@@ -1,0 +1,60 @@
+.list-view {
+    margin-top: 79px;
+    width: 100%;
+}
+.notes {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.note {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    border: grey solid 2px;
+    border-radius: 10px;
+    height: 180px;
+    background-color: white;
+    margin: 10px;
+    align-items: center;
+
+}
+
+h2 {
+    margin-left: 30px;
+    color: white;
+}
+
+.divider {
+    border: 1px #000000 solid;
+}
+
+.note12 {
+    width: 90%;
+    margin-top: 5px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.note22 {
+    width: 90%;
+}
+
+.check {
+    margin-bottom: -1px;
+    width: 10px;
+}
+
+.delete {
+    width: 45%;
+}
+
+.buttons {
+    width: 18%;
+    display: flex;
+    justify-content: space-between;
+    height: 23px;
+}
