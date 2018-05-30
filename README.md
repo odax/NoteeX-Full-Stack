@@ -1,6 +1,7 @@
 ##Notee X
 
 trello: Will update
+
 Features: 
 -create new note
 -edit note
