@@ -30,9 +30,9 @@ class ListView extends Component {
 }
 
 const mapStateToProps = state => {
-    return {
-        notes: state
-    }
+  return {
+    notes: state
+  }
 }
 
 export default connect(mapStateToProps)(ListView);

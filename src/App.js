@@ -14,8 +14,8 @@ class App extends Component {
           <SideBar />
         </div>
         <div className="App-right">
-          <Route exact path="/" component = {ListView} />
-          <Route path="/Add-Note" component = {AddNote} />
+          <Route exact path="/" component={ListView} />
+          <Route path="/Add-Note" component={AddNote} />
           <Route path="/Edit-Note/:index" component={EditNote} />
         </div>
       </div>

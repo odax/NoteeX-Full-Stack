@@ -27,9 +27,9 @@ class EditNote extends Component {
     }
 
     handleChange = (e) => {
-        this.setState({title: e.target.value})
+        this.setState({ title: e.target.value })
     }
-    
+
     render() {
         const { title, text } = this.state;
         const { notes, match } = this.props;
@@ -38,22 +38,22 @@ class EditNote extends Component {
             <div className='page new-note'>
                 <div>
                     <h2>Edit Note</h2>
-                    <div className = 'new-note-form'>
-                        <form onSubmit = {this.submit}>
+                    <div className='new-note-form'>
+                        <form onSubmit={this.submit}>
                             <div className='input'>
-                                <input 
-                                type='text'
-                                //{this.props.notes[this.props.match.params.index].title} = note.title
-                                placeholder={note.title}
-                                onChange={(e) => this.setState({title: e.target.value})}
-                                value={title}
+                                <input
+                                    type='text'
+                                    //{this.props.notes[this.props.match.params.index].title} = note.title
+                                    placeholder={note.title}
+                                    onChange={(e) => this.setState({ title: e.target.value })}
+                                    value={title}
                                 />
                             </div>
                             <div className='input'>
                                 <textarea
-                                placeholder={note.text}
-                                onChange={e => this.setState({ text: e.target.value})}
-                                value={text}></textarea>
+                                    placeholder={note.text}
+                                    onChange={e => this.setState({ text: e.target.value })}
+                                    value={text}></textarea>
                             </div>
                             <div className='input'>
                                 <button>Submit</button>
