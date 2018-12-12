@@ -8,10 +8,10 @@ class Note extends Component {
         const { title, text, completed, index, markComplete, deleteNote, history } = this.props;
         return (
 
-            <div className="note">
+            <div className="note"
+                onClick={() => history.push(`/Edit-Note/${index}`)}>
 
-                <div className="note12"
-                    onClick={() => history.push(`/Edit-Note/${index}`)}>
+                <div className="note12">
                     <h3 style={{ opacity: completed ? .25 : 1 }}>{title}</h3>
                     <div className="buttons">
                         <button onClick={e => {
