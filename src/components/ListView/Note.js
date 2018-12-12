@@ -14,10 +14,11 @@ class Note extends Component {
                 <div className="note12">
                     <h3 style={{ opacity: completed ? .25 : 1 }}>{title}</h3>
                     <div className="buttons">
-                        <button onClick={e => {
-                            e.stopPropagation();
-                            markComplete(index)
-                        }
+                        <button 
+                            onClick={e => {
+                                e.stopPropagation();
+                                markComplete(index)
+                            }
                         }
                             className="complete">
                             {

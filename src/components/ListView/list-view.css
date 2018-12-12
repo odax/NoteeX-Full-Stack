@@ -42,6 +42,17 @@ h2 {
     justify-content: space-between;
 }
 
+.note12 .buttons button {
+    width: 23px;
+    background-color: white;
+    border-radius: 5%;
+    -webkit-border-radius: 5%;
+    -moz-border-radius: 5%;
+    -ms-border-radius: 5%;
+    -o-border-radius: 5%;
+    border: 1px solid teal;
+}
+
 .note22 {
     width: 90%;
 }
