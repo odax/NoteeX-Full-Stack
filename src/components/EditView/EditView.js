@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { updateNote } from '../../actions';
 import { connect } from 'react-redux';
 
+import './EditView.css';
+
 
 class EditNote extends Component {
     constructor(props) {
@@ -36,11 +38,9 @@ class EditNote extends Component {
         const note = notes[match.params.index];
         return (
             <div className='page new-note'>
-                <div>
                     <h2>Edit Note</h2>
                     <div className='new-note-form'>
                         <form onSubmit={this.submit}>
-                            <div className='input'>
                                 <input
                                     type='text'
                                     //{this.props.notes[this.props.match.params.index].title} = note.title
@@ -48,19 +48,14 @@ class EditNote extends Component {
                                     onChange={(e) => this.setState({ title: e.target.value })}
                                     value={title}
                                 />
-                            </div>
-                            <div className='input'>
                                 <textarea
                                     placeholder={note.text}
                                     onChange={e => this.setState({ text: e.target.value })}
-                                    value={text}></textarea>
-                            </div>
-                            <div className='input'>
+                                    value={text}
+                                    ></textarea>
                                 <button>Submit</button>
-                            </div>
                         </form>
                     </div>
-                </div>
             </div>
         );
     }
