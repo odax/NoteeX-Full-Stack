@@ -3,6 +3,8 @@ import SideBar from "./components/SideBar/SideBar";
 import ListView from "./components/ListView/ListView";
 import AddNote from "./components/AddNote/AddNote";
 import EditNote from "./components/EditView/EditView";
+import SignIn from "./components/Auth/SignIn";
+import SignUp from "./components/Auth/SignUp";
 import { Route } from "react-router-dom";
 import "./App.css";
 
@@ -17,6 +19,8 @@ class App extends Component {
           <Route exact path="/" component={ListView} />
           <Route path="/Add-Note" component={AddNote} />
           <Route path="/Edit-Note/:index" component={EditNote} />
+          <Route path="/signin" component={SignIn}/>
+          <Route path="/signup" component={SignUp}/>
         </div>
       </div>
     );
