@@ -3,13 +3,22 @@ import ReactDOM from "react-dom"; //removed {render}
 import "./index.css";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import Reducers from './reducers';
 import registerServiceWorker from "./registerServiceWorker";
 import thunk from 'redux-thunk';
+import { reduxFirestore, getFirestore } from 'redux-firestore';
+import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
+import fbConfig from './config/fbConfig';
 
-const store = createStore(Reducers, applyMiddleware(thunk));
+const store = createStore(Reducers,
+  compose(
+    applyMiddleware(thunk.withExtraArgument({ getFirebase, getFireStore})),
+    reduxFirestore(fbConfig),
+    reactReduxFirebase(fbConfig)
+  )
+);
 
 ReactDOM.render(
   <Router>

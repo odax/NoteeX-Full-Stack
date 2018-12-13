@@ -13,9 +13,12 @@ export const DELETE_NOTE = 'DELETE_NOTE';
 // } 
 
 export const addNote = note => {
-    return {
-        type: ADD_NOTE,
-        note
+    return (dispatch, getState, { getFirebase, getFirestore }) => {
+        //make async call to database
+        dispatch({
+            type: ADD_NOTE,
+            note
+        });
     }
 }
 
