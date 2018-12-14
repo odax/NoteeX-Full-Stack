@@ -1,4 +1,5 @@
 export const ADD_NOTE = 'ADD_NOTE';
+export const ADD_NOTE_ERROR = 'ADD_NOTE_ERROR';
 export const UPDATE_NOTE = 'UPDATE_NOTE';
 export const MARK_COMPLETE = 'MARK_COMPLETE';
 export const DELETE_NOTE = 'DELETE_NOTE';
@@ -15,10 +16,21 @@ export const DELETE_NOTE = 'DELETE_NOTE';
 export const addNote = note => {
     return (dispatch, getState, { getFirebase, getFirestore }) => {
         //make async call to database
-        dispatch({
-            type: ADD_NOTE,
-            note
-        });
+        const firestore = getFirestore();
+        firestore.collection('notes').add({
+            ...note,
+            authorFirstName: 'Nalee',
+            authorLastName: 'Riddell',
+            authorId: 12345,
+            createdAt: new Date()
+        }).then(() => {
+            dispatch({
+                type: ADD_NOTE,
+                note
+            });
+        }).catch((err) => {
+            dispatch({ type: ADD_NOTE_ERROR, err});
+        })
     }
 }
 
