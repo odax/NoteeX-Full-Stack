@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 class Note extends Component {
     render = () => {
-        const { title, text, completed, index, markComplete, deleteNote, history } = this.props;
+        const { title, text, completed, index, markComplete, deleteNote, history, id } = this.props;
         return (
 
             <div className="note"
@@ -33,7 +33,7 @@ class Note extends Component {
                             className="delete"
                             onClick={e => {
                                 e.stopPropagation();
-                                deleteNote(index);
+                                deleteNote(id);
                             }}
                         >
                             X
