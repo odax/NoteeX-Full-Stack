@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Note from "./Note";
 import "./list-view.css";
 import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 
 class ListView extends Component {
   // this basically says that if the new props are different, re-render
@@ -17,7 +19,7 @@ class ListView extends Component {
       <div className="list-view">
         <h2>Notes:</h2>
         <div className="notes">
-          {this.props.notes.map((note, i) => {
+          {this.props.notes && this.props.notes.map((note, i) => {
             const { id, title, text, completed } = note;
             return (
               <Note key={id} id={id} index={i} title={title} text={text} completed={completed} history={history} />
@@ -30,9 +32,16 @@ class ListView extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state.firestore.ordered.notes);
+  console.log(state.project)
   return {
-    notes: state
+    notes: state.firestore.ordered.notes
   }
 }
 
-export default connect(mapStateToProps)(ListView);
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    { collection: 'notes' }
+  ])
+)(ListView);

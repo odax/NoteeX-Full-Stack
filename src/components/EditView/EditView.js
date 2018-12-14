@@ -63,7 +63,7 @@ class EditNote extends Component {
 
 const mapStateToProps = state => {
     return {
-        notes: state
+        notes: state.project
     }
 }
 
