@@ -3,6 +3,8 @@ export const ADD_NOTE_ERROR = 'ADD_NOTE_ERROR';
 export const UPDATE_NOTE = 'UPDATE_NOTE';
 export const MARK_COMPLETE = 'MARK_COMPLETE';
 export const DELETE_NOTE = 'DELETE_NOTE';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_ERROR = 'LOGIN_ERROR';
 //redux thunk
 //redux promise
 
@@ -53,5 +55,20 @@ export const deleteNote = index => {
     return {
         type: DELETE_NOTE,
         index
+    }
+}
+
+export const signIn = (credentials) => {
+    return (dispatch, getState, {getFirebase}) => {
+        const firebase = getFirebase();
+
+        firebase.auth().signInWithEmailAndPassword(
+            credentials.email,
+            credentials.password
+        ).then(() => {
+            dispatch({ type: LOGIN_SUCCESS })
+        }).catch((err) => {
+            dispatch({ type: LOGIN_ERROR, err })
+        });
     }
 }

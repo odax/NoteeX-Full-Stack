@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
 
 import LoggedIn from './LoggedIn';
 import LoggedOut from './LoggedOut';
@@ -22,4 +23,9 @@ class SideBar extends Component {
   };
 }
 
-export default SideBar;
+const mapStateToProps = (state) => {
+  return {
+
+  }
+}
+export default connect(mapStateToProps)(SideBar);
