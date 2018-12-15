@@ -1,22 +1,25 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { signOut } from "../../actions";
 
-export default class LoggedIn extends Component {
-  render() {
+const LoggedIn = (props) => {
     return (
-        <div>
+      <div>
         <Link to="/">
-            <button className="btn1">View Notes</button>
+          <button className="btn1">View Notes</button>
         </Link>
         <Link to="./Add-Note">
-            <button className="btn1">
-                + Add New Note
-        </button>
+          <button className="btn1">+ Add New Note</button>
         </Link>
-        <button className="btn2">
-            Log Out
-        </button>
-    </div>
-    )
+        <a onClick={props.signOut}>Log Out</a>
+      </div>
+    );
   }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signOut: () => dispatch(signOut())
+    }
 }
+export default connect(null, mapDispatchToProps)(LoggedIn)
