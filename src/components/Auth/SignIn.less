@@ -1,0 +1,44 @@
+.SigninContainer {
+    margin-top: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20vh;
+    align-items: center;
+
+    form {
+        border: 3px solid white;
+        border-radius: 5px;
+        padding: 10px;
+        background-color: grey;
+        h5 {
+            color: white;
+            text-align: center;
+        }
+        .input-field {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            label {
+                color: white;
+            }
+            input {
+                background-color: white;
+                margin-bottom: 10px;
+            }
+            button {
+                border: 1px solid white;
+                background: teal;
+                color: white;
+                border-radius: 2px;
+                height: 10%;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            .errorText {
+                color: red;
+            }
+        }
+    }
+}

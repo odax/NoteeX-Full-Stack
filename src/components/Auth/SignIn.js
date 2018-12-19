@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { signIn } from '../../actions';
 
+import './SignIn.css';
+
 export class SignIn extends Component {
   state = {
     email: '',

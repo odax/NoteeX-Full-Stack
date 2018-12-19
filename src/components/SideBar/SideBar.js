@@ -9,14 +9,14 @@ import "./side-bar.css";
 const isLoggedIn = true;
 
 class SideBar extends Component {
-  shouldComponentUpdate = (nextProps, nextState) => false;
   render = () => {
+    const { auth } = this.props;
+    const links = auth.uid ? <LoggedIn /> : <LoggedOut />;
     return (
       <div className="side-bar">
         <div className="side-bar-container">
           <img src={require('./logo.png')} width="100%" height="auto" alt="noteeX logo" />
-          <LoggedIn/>
-          <LoggedOut/>
+          { links }
         </div>
       </div>
     );
@@ -25,7 +25,7 @@ class SideBar extends Component {
 
 const mapStateToProps = (state) => {
   return {
-
+    auth: state.firebase.auth
   }
 }
 export default connect(mapStateToProps)(SideBar);
