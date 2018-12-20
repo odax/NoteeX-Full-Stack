@@ -9,7 +9,7 @@ import { Redirect } from 'react-router-dom';
 class ListView extends Component {
   // this basically says that if the new props are different, re-render
   shouldComponentUpdate = nextProps => {
-    if (nextProps.notes !== this.props.notes) return true;
+    if ((nextProps.notes !== this.props.notes) || (nextProps.auth !== this.props.auth)) return true;
     else return false;
   };
 
@@ -37,8 +37,6 @@ class ListView extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.firestore.ordered.notes);
-  console.log(state.project)
   return {
     notes: state.firestore.ordered.notes,
     auth: state.firebase.auth
