@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { signOut } from "../../actions";
@@ -9,10 +9,10 @@ const LoggedIn = (props) => {
         <Link to="/">
           <button className="btn1">View Notes</button>
         </Link>
-        <Link to="./Add-Note">
+        <Link to="/Add-Note">
           <button className="btn1">+ Add New Note</button>
         </Link>
-        <a onClick={props.signOut}>Log Out</a>
+        <button className="btn2" onClick={props.signOut}>Log Out</button>
       </div>
     );
   }

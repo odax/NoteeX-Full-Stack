@@ -6,8 +6,9 @@ import EditNote from "./components/EditView/EditView";
 import SignIn from "./components/Auth/SignIn";
 import SignUp from "./components/Auth/SignUp";
 import { Route } from "react-router-dom";
-import "./App.css";
 import { connect } from "react-redux";
+import "./App.css";
+
 
 class App extends Component {
   render() {
@@ -17,7 +18,7 @@ class App extends Component {
           <SideBar />
         </div>
         <div className="App-right">
-          <Route exact path="/" component={ListView} />
+          <Route path="/" exact component={ListView} />
           <Route path="/Add-Note" component={AddNote} />
           <Route path="/Edit-Note/:index" component={EditNote} />
           <Route path="/signin" component={SignIn}/>
@@ -28,15 +29,7 @@ class App extends Component {
   }
 }
 
-//this is just in case we want to render anything specific based on 
-//the user being logged in
-const mapStateToProps = (state) => {
-  return {
-    auth: state.firebase.auth
-  }
-}
-
-export default connect(mapStateToProps)(App)
+export default App;
 
 //so normalling in redux you would use <Route exact path = '/' component ={ListView}
 //but in using just react, you have to pass props down, so this format will not work
