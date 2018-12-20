@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { signOut } from "../../actions";
 
+import './side-bar.css';
+
 const LoggedIn = (props) => {
     return (
       <div>
@@ -12,6 +14,9 @@ const LoggedIn = (props) => {
         <Link to="/Add-Note">
           <button className="btn1">+ Add New Note</button>
         </Link>
+        <div className='initials'>
+          {props.profile.initials}
+        </div>
         <button className="btn2" onClick={props.signOut}>Log Out</button>
       </div>
     );

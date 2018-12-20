@@ -7,8 +7,8 @@ import "./side-bar.css";
 
 class SideBar extends Component {
   render = () => {
-    const { auth } = this.props;
-    const links = auth.uid ? <LoggedIn /> : <LoggedOut />;
+    const { auth, profile } = this.props;
+    const links = auth.uid ? <LoggedIn profile={ profile } /> : <LoggedOut />;
     return (
       <div className="side-bar">
         <div className="side-bar-container">
@@ -23,7 +23,8 @@ class SideBar extends Component {
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    profile: state.firebase.profile
   }
 }
 export default connect(mapStateToProps)(SideBar);
