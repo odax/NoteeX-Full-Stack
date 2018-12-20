@@ -9,7 +9,6 @@ import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 import "./App.css";
 
-
 class App extends Component {
   render() {
     return (
@@ -21,8 +20,8 @@ class App extends Component {
           <Route path="/" exact component={ListView} />
           <Route path="/Add-Note" component={AddNote} />
           <Route path="/Edit-Note/:index" component={EditNote} />
-          <Route path="/signin" component={SignIn}/>
-          <Route path="/signup" component={SignUp}/>
+          <Route path="/signin" component={SignIn} />
+          <Route path="/signup" component={SignUp} />
         </div>
       </div>
     );
