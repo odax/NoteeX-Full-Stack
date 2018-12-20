@@ -4,6 +4,7 @@ import "./list-view.css";
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
+import { Redirect } from 'react-router-dom';
 
 class ListView extends Component {
   // this basically says that if the new props are different, re-render
@@ -13,8 +14,12 @@ class ListView extends Component {
   };
 
   render() {
-    const { history } = this.props;
-    //took out notes from the destructuring above
+    const { history, auth } = this.props;
+    
+    if (!auth.uid) {
+      return <Redirect to='/signin'/>
+    }
+
     return (
       <div className="list-view">
         <h2>Notes:</h2>
@@ -35,7 +40,8 @@ const mapStateToProps = state => {
   console.log(state.firestore.ordered.notes);
   console.log(state.project)
   return {
-    notes: state.firestore.ordered.notes
+    notes: state.firestore.ordered.notes,
+    auth: state.firebase.auth
   }
 }
 

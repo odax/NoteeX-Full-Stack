@@ -6,7 +6,6 @@ import EditNote from "./components/EditView/EditView";
 import SignIn from "./components/Auth/SignIn";
 import SignUp from "./components/Auth/SignUp";
 import { Route } from "react-router-dom";
-import { connect } from "react-redux";
 import "./App.css";
 
 class App extends Component {

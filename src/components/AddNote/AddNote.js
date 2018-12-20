@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { addNote } from '../../actions';
 import { connect } from 'react-redux';
-
+import { Redirect } from 'react-router-dom';
 
 class AddNote extends Component {
     constructor(props) {
@@ -27,7 +27,14 @@ class AddNote extends Component {
     }
 
     render() {
+
+        const { auth } = this.props;
         const { title, text } = this.state;
+
+        if (!auth.uid) {
+            return <Redirect to='/signin'/>
+          }
+
         return (
             <div className='page new-note'>
                 <div>
@@ -59,4 +66,10 @@ class AddNote extends Component {
     }
 }
 
-export default connect(null, { addNote })(AddNote);
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
+    }
+}
+
+export default connect(mapStateToProps, { addNote })(AddNote);

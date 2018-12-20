@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { updateNote } from '../../actions';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import './EditView.css';
 
@@ -34,8 +35,13 @@ class EditNote extends Component {
 
     render() {
         const { title, text } = this.state;
-        const { notes, match } = this.props;
+        const { notes, match, auth } = this.props;
         const note = notes[match.params.index];
+
+        if (!auth.uid) {
+            return <Redirect to='/signin'/>
+        }
+
         return (
             <div className='page new-note'>
                     <h2>Edit Note</h2>
@@ -63,7 +69,8 @@ class EditNote extends Component {
 
 const mapStateToProps = state => {
     return {
-        notes: state.project
+        notes: state.project,
+        auth: state.firebase.auth
     }
 }
 
