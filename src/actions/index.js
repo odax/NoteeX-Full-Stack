@@ -1,3 +1,5 @@
+import { storage } from "firebase";
+
 export const ADD_NOTE = 'ADD_NOTE';
 export const ADD_NOTE_ERROR = 'ADD_NOTE_ERROR';
 export const UPDATE_NOTE = 'UPDATE_NOTE';
@@ -70,7 +72,8 @@ export const signIn = (credentials) => {
         firebase.auth().signInWithEmailAndPassword(
             credentials.email,
             credentials.password
-        ).then(() => {
+        ).then(resp => {
+            localStorage.setItem('uid', resp.user.uid);
             dispatch({ type: LOGIN_SUCCESS })
         }).catch((err) => {
             dispatch({ type: LOGIN_ERROR, err })
@@ -81,7 +84,7 @@ export const signIn = (credentials) => {
 export const signOut = () => {
     return (dispatch, getState, {getFirebase}) => {
         const firebase = getFirebase();
-
+        localStorage.removeItem('uid');
         firebase.auth().signOut().then(() => {
             dispatch({ type: SIGNOUT_SUCCESS });
         });

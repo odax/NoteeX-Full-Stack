@@ -46,6 +46,7 @@ const mapStateToProps = state => {
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    { collection: 'notes' }
+    { collection: 'notes',
+      where: ['authorId', '==', `${localStorage.getItem('uid')}`] }
   ])
 )(ListView);
