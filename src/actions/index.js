@@ -84,7 +84,7 @@ export const signIn = (credentials) => {
 export const signOut = () => {
     return (dispatch, getState, {getFirebase}) => {
         const firebase = getFirebase();
-        localStorage.removeItem('uid');
+        localStorage.removeItem;
         firebase.auth().signOut().then(() => {
             dispatch({ type: SIGNOUT_SUCCESS });
         });
