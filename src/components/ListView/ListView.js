@@ -25,9 +25,9 @@ class ListView extends Component {
         <h2>Notes:</h2>
         <div className="notes">
           {this.props.notes && this.props.notes.map((note, i) => {
-            const { id, title, text, completed } = note;
+            const { id, title, text, completed, authorFirstName, authorLastName } = note;
             return (
-              <Note key={id} id={id} index={i} title={title} text={text} completed={completed} history={history} />
+              <Note key={id} id={id} index={i} title={title} text={text} completed={completed} history={history} name={authorFirstName + ' ' + authorLastName} />
             );
           })}
         </div>
@@ -37,6 +37,7 @@ class ListView extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
     notes: state.firestore.ordered.notes,
     auth: state.firebase.auth
@@ -46,7 +47,6 @@ const mapStateToProps = state => {
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    { collection: 'notes',
-      where: ['authorId', '==', `${localStorage.getItem('uid')}`] }
+    { collection: 'notes' }
   ])
 )(ListView);

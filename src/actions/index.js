@@ -31,7 +31,7 @@ export const addNote = note => {
             authorFirstName: profile.firstName,
             authorLastName:  profile.lastName,
             authorId: authorId,
-            createdAt: new Date()
+            createdAt: new Date() 
         }).then(() => {
             dispatch({
                 type: ADD_NOTE,
@@ -72,8 +72,7 @@ export const signIn = (credentials) => {
         firebase.auth().signInWithEmailAndPassword(
             credentials.email,
             credentials.password
-        ).then(resp => {
-            localStorage.setItem('uid', resp.user.uid);
+        ).then(() => {
             dispatch({ type: LOGIN_SUCCESS })
         }).catch((err) => {
             dispatch({ type: LOGIN_ERROR, err })
@@ -84,7 +83,6 @@ export const signIn = (credentials) => {
 export const signOut = () => {
     return (dispatch, getState, {getFirebase}) => {
         const firebase = getFirebase();
-        localStorage.removeItem('uid');
         firebase.auth().signOut().then(() => {
             dispatch({ type: SIGNOUT_SUCCESS });
         });

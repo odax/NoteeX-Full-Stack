@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 class Note extends Component {
     render = () => {
-        const { title, text, completed, index, markComplete, deleteNote, history, id } = this.props;
+        const { title, text, completed, index, markComplete, deleteNote, history, id, name } = this.props;
         return (
 
             <div className="note"
@@ -45,6 +45,7 @@ class Note extends Component {
                 <div className="note22" style={{ opacity: completed ? .25 : 1 }}>
                     <div className="divider" />
                     <p>{text}</p>
+                    <p>{name}</p>
                 </div>
             </div>
         );
