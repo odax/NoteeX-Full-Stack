@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signUp } from '../../actions';
+import './SignUp.css';
 
 export class SignUp extends Component {
   state = {

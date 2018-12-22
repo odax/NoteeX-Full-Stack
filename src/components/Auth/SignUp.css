@@ -1,4 +1,4 @@
-.SigninContainer {
+.SignupContainer {
   margin-top: 30vh;
   display: flex;
   flex-direction: column;
@@ -6,35 +6,35 @@
   height: 20vh;
   align-items: center;
 }
-.SigninContainer form {
+.SignupContainer form {
   border: 3px solid white;
   border-radius: 5px;
   padding: 10px;
   background-color: grey;
 }
-.SigninContainer form h5 {
+.SignupContainer form h5 {
   color: white;
   text-align: center;
 }
-.SigninContainer form .input-field {
+.SignupContainer form .input-field {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
-.SigninContainer form .input-field label {
+.SignupContainer form .input-field label {
   color: white;
 }
-.SigninContainer form .input-field input {
+.SignupContainer form .input-field input {
   background-color: white;
   margin-bottom: 10px;
 }
-.SigninContainer form .input-field button {
+.SignupContainer form .input-field button {
   border: 1px solid white;
   background: teal;
   color: white;
   border-radius: 2px;
   height: 10%;
 }
-.SigninContainer form .input-field button:hover {
+.SignupContainer form .input-field button:hover {
   cursor: pointer;
 }
