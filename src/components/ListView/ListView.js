@@ -25,9 +25,9 @@ class ListView extends Component {
         <h2>Notes:</h2>
         <div className="notes">
           {this.props.notes && this.props.notes.map((note, i) => {
-            const { id, title, text, completed, authorFirstName, authorLastName } = note;
+            const { id, title, text, completed, authorFirstName, authorLastName, createdAt } = note;
             return (
-              <Note key={id} id={id} index={i} title={title} text={text} completed={completed} history={history} name={authorFirstName + ' ' + authorLastName} />
+              <Note key={id} id={id} index={i} title={title} text={text} completed={completed} history={history} name={authorFirstName + ' ' + authorLastName} time={createdAt} />
             );
           })}
         </div>
