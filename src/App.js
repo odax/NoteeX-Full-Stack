@@ -11,18 +11,18 @@ import "./App.css";
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-left">
-          <SideBar />
+        <div className="App">
+          <div className="App-left">
+              <SideBar />
+          </div>
+          <div className="App-right">
+            <Route path="/" exact component={ListView} />
+            <Route path="/Add-Note" component={AddNote} />
+            <Route path="/Edit-Note/:index" component={EditNote} />
+            <Route path="/signin" component={SignIn} />
+            <Route path="/signup" component={SignUp} />
+          </div>
         </div>
-        <div className="App-right">
-          <Route path="/" exact component={ListView} />
-          <Route path="/Add-Note" component={AddNote} />
-          <Route path="/Edit-Note/:index" component={EditNote} />
-          <Route path="/signin" component={SignIn} />
-          <Route path="/signup" component={SignUp} />
-        </div>
-      </div>
     );
   }
 }
