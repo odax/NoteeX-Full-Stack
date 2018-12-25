@@ -12,10 +12,9 @@
 .note {
     display: flex;
     flex-direction: column;
-    width: 30%;
-    border: grey solid 2px;
+    width: 40%;
     border-radius: 10px;
-    height: 180px;
+    height: 135px;
     background-color: white;
     margin: 10px;
     align-items: center;
@@ -30,12 +29,8 @@ h2 {
     color: white;
 }
 
-.divider {
-    border: 1px #000000 solid;
-}
-
 .note12 {
-    width: 90%;
+    width: 95%;
     margin-top: 5px;
     margin-right: 5px;
     display: flex;
@@ -45,16 +40,22 @@ h2 {
 .note12 .buttons button {
     width: 23px;
     background-color: white;
-    border-radius: 5%;
-    -webkit-border-radius: 5%;
-    -moz-border-radius: 5%;
-    -ms-border-radius: 5%;
-    -o-border-radius: 5%;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
     border: 1px solid teal;
 }
 
 .note22 {
-    width: 90%;
+    width: 95%;
+    height: 80%;
+}
+
+.author-date-divider {
+    display: flex;
+    justify-content: space-between;
 }
 
 .check {
@@ -71,4 +72,9 @@ h2 {
     display: flex;
     justify-content: space-between;
     height: 23px;
+}
+
+.text {
+    font-size: 11px;
+    color: teal;
 }

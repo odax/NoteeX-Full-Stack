@@ -45,9 +45,11 @@ class Note extends Component {
 
                 <div className="note22" style={{ opacity: completed ? .25 : 1 }}>
                     <div className="divider" />
-                    <p>{text}</p>
+                    <p className='text'>{text}</p>
+                    <div className='author-date-divider'>
                     <p>Posted by {name}</p>
                     <p>{moment(time.toDate()).format('llll')}</p>
+                    </div>
                 </div>
             </div>
         );

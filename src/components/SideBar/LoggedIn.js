@@ -9,10 +9,10 @@ const LoggedIn = (props) => {
     return (
       <div>
         <Link to="/">
-          <Button variant='contained' color='primary'>View Notes</Button>
+          <Button variant='contained' color='primary' className="btn-no-underline">View Notes</Button>
         </Link>
         <Link to="/Add-Note">
-          <button className="btn1">+ Add New Note</button>
+          <Button variant='contained' color='primary' className="btn-no-underline">+ Add New Note</Button>
         </Link>
         <div className='initials'>
           {props.profile.initials}

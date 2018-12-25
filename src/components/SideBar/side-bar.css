@@ -87,3 +87,7 @@ img {
     align-items: center;
     color: darkgrey;
 }
+
+Button {
+    text-decoration: none;
+}
