@@ -10,6 +10,7 @@ export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const SIGNOUT_SUCCESS = 'SIGNOUT_SUCCESS';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_ERROR = 'SIGNUP_ERROR';
+export const DELETE_NOTE_ERROR = 'DELETE_NOTE_ERROR';
 //redux thunk
 //redux promise
 
@@ -58,11 +59,25 @@ export const markComplete = index => {
     }
 }
 
-export const deleteNote = index => {
-    return {
-        type: DELETE_NOTE,
-        index
+export const deleteNote = docid => {
+    return (dispatch, getState, { getFirebase, getFirestore }) => {
+        //make async call to database
+        const firestore = getFirestore();
+        const profile = getState().firebase.profile;
+        const authorId = getState().firebase.auth.uid;
+        firestore.collection('notes').doc('3NDn5xhF90QaVjqUwbjY').delete().then(() => {
+            dispatch({
+                type: DELETE_NOTE,
+                docid
+            });
+        }).catch((err) => {
+            dispatch({ type: DELETE_NOTE_ERROR, err});
+        })
     }
+    // return {
+    //     type: DELETE_NOTE,
+    //     index
+    // }
 }
 
 export const signIn = (credentials) => {

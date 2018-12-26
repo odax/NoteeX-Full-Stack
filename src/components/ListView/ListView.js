@@ -36,6 +36,8 @@ class ListView extends Component {
   }
 }
 
+//was trying to add delete note feature, need to pass custom id of note to the component above..
+
 const mapStateToProps = state => {
   console.log(state);
   return {
