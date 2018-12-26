@@ -1,4 +1,4 @@
-import { ADD_NOTE, ADD_NOTE_ERROR, UPDATE_NOTE, DELETE_NOTE, MARK_COMPLETE } from '../actions';
+import { ADD_NOTE, ADD_NOTE_ERROR, UPDATE_NOTE, DELETE_NOTE, DELETE_NOTE_ERROR, MARK_COMPLETE } from '../actions';
 import update from 'immutability-helper';
 
 const initialState = [
@@ -28,8 +28,13 @@ export default (notes=initialState, action) => {
             const updatedState = update(notes, {[action.index]: {$set: updatedNote}});
             return updatedState;
         case DELETE_NOTE:
-            const deletedState = update(notes, {$splice: [[action.index, 1]]});
-            return deletedState;
+            // const deletedState = update(notes, {$splice: [[action.index, 1]]});
+            // return deletedState;
+            console.log('deleted note: ' + action.docid);
+            return notes;
+        case DELETE_NOTE_ERROR:
+            console.log('Error! ' + action.err);
+            return notes;
         default:
             return notes;
     }

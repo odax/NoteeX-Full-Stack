@@ -65,7 +65,7 @@ export const deleteNote = docid => {
         const firestore = getFirestore();
         const profile = getState().firebase.profile;
         const authorId = getState().firebase.auth.uid;
-        firestore.collection('notes').doc('3NDn5xhF90QaVjqUwbjY').delete().then(() => {
+        firestore.collection('notes').doc(`${docid}`).delete().then(() => {
             dispatch({
                 type: DELETE_NOTE,
                 docid

@@ -6,7 +6,7 @@ import moment from 'moment';
 
 class Note extends Component {
     render = () => {
-        const { title, text, completed, index, markComplete, deleteNote, history, noteid, name, time } = this.props;
+        const { title, text, completed, index, markComplete, deleteNote, history, id, name, time } = this.props;
         return (
 
             <div className="note"
@@ -34,7 +34,7 @@ class Note extends Component {
                             className="delete"
                             onClick={e => {
                                 e.stopPropagation();
-                                deleteNote(noteid);
+                                deleteNote(id);
                             }}
                         >
                             X
