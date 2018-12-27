@@ -18,7 +18,7 @@ class Note extends Component {
                         <button 
                             onClick={e => {
                                 e.stopPropagation();
-                                markComplete(index)
+                                markComplete(id, completed)
                             }
                         }
                             className="complete">

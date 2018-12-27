@@ -1,4 +1,4 @@
-import { ADD_NOTE, ADD_NOTE_ERROR, UPDATE_NOTE, DELETE_NOTE, DELETE_NOTE_ERROR, MARK_COMPLETE } from '../actions';
+import { ADD_NOTE, ADD_NOTE_ERROR, UPDATE_NOTE, DELETE_NOTE, DELETE_NOTE_ERROR, MARK_COMPLETE, MARK_COMPLETE_ERROR } from '../actions';
 import update from 'immutability-helper';
 
 const initialState = [
@@ -20,9 +20,12 @@ export default (notes=initialState, action) => {
             console.log('create project error', action.err);
             return notes;
         case MARK_COMPLETE:
-            const completed = notes[action.index].completed;
-            const completedState = update(notes, {[action.index]: {completed: {$set: !completed}}});
-            return completedState;
+            // const completed = notes[action.index].completed;
+            // const completedState = update(notes, {[action.index]: {completed: {$set: !completed}}});
+            // return completedState;
+            console.log('updated note ' + action.docid);
+        case MARK_COMPLETE_ERROR:
+            console.log('Error! ' + action.err);
         case UPDATE_NOTE:
             const updatedNote = action.note;
             const updatedState = update(notes, {[action.index]: {$set: updatedNote}});
