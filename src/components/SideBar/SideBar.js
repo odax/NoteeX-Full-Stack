@@ -13,6 +13,7 @@ class SideBar extends Component {
       <div className="side-bar">
         <div className="side-bar-container">
           <img src={require('./logo.png')} width="100%" height="auto" alt="noteeX logo" />
+          <h5>Public Notes V.01</h5>
           { links }
         </div>
       </div>
