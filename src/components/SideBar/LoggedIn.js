@@ -25,6 +25,7 @@ const LoggedIn = (props) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         signOut: () => dispatch(signOut())
+        //all the code needed for firebase to sign out
     }
 }
 export default connect(null, mapDispatchToProps)(LoggedIn)

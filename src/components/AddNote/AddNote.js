@@ -12,13 +12,14 @@ class AddNote extends Component {
         }
     }
 
+    
     submit = (e) => {
         e.preventDefault();
         const { title, text } = this.state;
         if (title !== '' && text !== '') {
             const newNote = { title, text, completed: false };
             this.props.addNote(newNote);
-            this.props.history.push('/');
+            this.props.history.push('/'); //history.push is an easy way to update the current route
         }
     }
 

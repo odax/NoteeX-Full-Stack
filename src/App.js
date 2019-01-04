@@ -11,6 +11,8 @@ import "./App.css";
 class App extends Component {
   render() {
     return (
+      //app code is split up betwee the left sidebar and the right display component
+      //right display component will update via react-router-dom
         <div className="App">
           <div className="App-left">
               <SideBar />
@@ -29,7 +31,7 @@ class App extends Component {
 
 export default App;
 
-//so normalling in redux you would use <Route exact path = '/' component ={ListView}
+//so normally in redux you would use <Route exact path = '/' component ={ListView}
 //but in using just react, you have to pass props down, so this format will not work
 //the proper format will be to use an arrow function
 //<Route exact path = '/' render={props => <ListView notes={this.state.notes} />} />

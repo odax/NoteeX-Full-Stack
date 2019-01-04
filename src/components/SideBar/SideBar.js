@@ -9,6 +9,7 @@ class SideBar extends Component {
   render = () => {
     const { auth, profile } = this.props;
     const links = auth.uid ? <LoggedIn profile={ profile } /> : <LoggedOut />;
+    //above, display logged in component if 'profile' in this.state.firebase.auth exists, otherwise display logged out component.
     return (
       <div className="side-bar">
         <div className="side-bar-container">

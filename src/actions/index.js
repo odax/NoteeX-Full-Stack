@@ -12,15 +12,9 @@ export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 export const SIGNUP_ERROR = "SIGNUP_ERROR";
 export const DELETE_NOTE_ERROR = "DELETE_NOTE_ERROR";
 export const MARK_COMPLETE_ERROR = "MARK_COMPLETE_ERROR";
-//redux thunk
-//redux promise
 
-// export const updateNote = async (note, id) => {
-//     await Axios.put(`http://localhost:5000/api/notes/${id}`, note);
-//     return dispatch => {
-//         dispatch(getNotes());
-//     } //anytime i make ajax request i am utilizing apromise , async keyword --> promise
-// }
+//here action types are redefined in order to allow easy troubleshooting if mispelled
+
 
 export const addNote = note => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
@@ -105,10 +99,6 @@ export const deleteNote = docid => {
         dispatch({ type: DELETE_NOTE_ERROR, err });
       });
   };
-  // return {
-  //     type: DELETE_NOTE,
-  //     index
-  // }
 };
 
 export const signIn = credentials => {
