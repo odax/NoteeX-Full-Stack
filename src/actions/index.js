@@ -3,6 +3,7 @@ import { storage } from "firebase";
 export const ADD_NOTE = "ADD_NOTE";
 export const ADD_NOTE_ERROR = "ADD_NOTE_ERROR";
 export const UPDATE_NOTE = "UPDATE_NOTE";
+export const UPDATE_NOTE_ERROR = "UPDATE_NOTE_ERROR";
 export const MARK_COMPLETE = "MARK_COMPLETE";
 export const DELETE_NOTE = "DELETE_NOTE";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -12,6 +13,7 @@ export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 export const SIGNUP_ERROR = "SIGNUP_ERROR";
 export const DELETE_NOTE_ERROR = "DELETE_NOTE_ERROR";
 export const MARK_COMPLETE_ERROR = "MARK_COMPLETE_ERROR";
+export const SELECTED_NOTE_FOR_EDIT = "SELECTED_NOTE_FOR_EDIT";
 
 //here action types are redefined in order to allow easy troubleshooting if mispelled
 
@@ -43,12 +45,27 @@ export const addNote = note => {
   };
 };
 
-export const updateNote = (note, index) => {
-  return {
-    type: UPDATE_NOTE,
-    note,
-    index
-  };
+export const updateNote = (docid, newTitle, newText) => {
+  return (dispatch, getState, {getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+    firestore
+      .collection("notes")
+      .doc(`${docid}`)
+      .update({
+        title: newTitle,
+        text: newText
+      })
+      .then(() => {
+        console.log('firing update action success');
+      dispatch({
+        type: UPDATE_NOTE,
+        docid
+      });
+    })
+    .catch(err => {
+      dispatch({ type: UPDATE_NOTE_ERROR, err });
+    });
+  }
 };
 
 export const markComplete = (docid, completed) => {
@@ -100,6 +117,17 @@ export const deleteNote = docid => {
       });
   };
 };
+
+export const selectNoteForEdit = (id, title, text) => {
+  return (dispatch) => {
+    dispatch({
+      type: SELECTED_NOTE_FOR_EDIT,
+      id,
+      title,
+      text
+    });
+  }
+}
 
 export const signIn = credentials => {
   return (dispatch, getState, { getFirebase }) => {

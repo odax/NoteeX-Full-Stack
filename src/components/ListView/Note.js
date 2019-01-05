@@ -1,16 +1,20 @@
 import React, { Component } from "react";
 import "./list-view.css";
-import { markComplete, deleteNote } from '../../actions';
+import { markComplete, deleteNote, selectNoteForEdit } from '../../actions';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
 class Note extends Component {
     render = () => {
-        const { title, text, completed, index, markComplete, deleteNote, history, id, name, time } = this.props;
+        const { title, text, completed, index, auth, markComplete, selectNoteForEdit, deleteNote, history, id, name, time, authorId } = this.props;
         return (
-
             <div className="note"
-                onClick={() => history.push(`/Edit-Note/${index}`)}>
+                onClick={() => {
+                    if (authorId === auth.uid) {
+                    selectNoteForEdit(id, title, text);
+                    history.push(`/Edit-Note/${id}`);
+                    }
+                }}>
 
                 <div className="note12">
                     <h3 style={{ opacity: completed ? .25 : 1 }}>{title}</h3>
@@ -56,4 +60,4 @@ class Note extends Component {
     };
 }
 
-export default connect(null, { markComplete, deleteNote })(Note);
+export default connect(null, { markComplete, deleteNote, selectNoteForEdit })(Note);
