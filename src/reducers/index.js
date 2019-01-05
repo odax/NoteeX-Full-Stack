@@ -32,7 +32,7 @@ export default (notes=initialState, action) => {
             // const updatedNote = action.note;
             // const updatedState = update(notes, {[action.index]: {$set: updatedNote}});
             // return updatedState;
-            console.log('Updated note: ' + action.noteid);
+            console.log('Updated note: ' + action.docid);
             return notes;
         case UPDATE_NOTE_ERROR:
             console.log('Error updating note! ' + action.err);
