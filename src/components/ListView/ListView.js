@@ -6,6 +6,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import { Route, Link } from 'react-router-dom';
 
 class ListView extends Component {
   // this basically says that if the new props are different, re-render
@@ -23,10 +24,14 @@ class ListView extends Component {
 
     return (
       <div className="list-view">
-        <h2>Notes:</h2>
+        <h2>All Public Notes:</h2>
         <div className='button-container'>
-          <Button variant='contained' color='primary' className="myNotes-button">My Notes</Button>
-          <Button variant='contained' color='primary' className='publicNotes-button'>All Notes</Button>
+          <Link to='/'>
+            <Button variant='contained' color='primary' className="myNotes-button">My Notes</Button>
+          </Link>
+          <Link to ='All-Notes'>
+            <Button disabled='true' variant='contained' color='primary' className='publicNotes-button'>All Notes</Button>
+          </Link>
         </div>
         <div className="notes">
           {this.props.notes && this.props.notes.map((note, i) => {

@@ -8,9 +8,6 @@ import './side-bar.css';
 const LoggedIn = (props) => {
     return (
       <div>
-        <Link to="/">
-          <Button variant='contained' color='primary' className="btn-no-underline">View Notes</Button>
-        </Link>
         <Link to="/Add-Note">
           <Button variant='contained' color='primary' className="btn-no-underline">+ Add New Note</Button>
         </Link>

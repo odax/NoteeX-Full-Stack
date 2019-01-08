@@ -5,6 +5,7 @@ import AddNote from "./components/AddNote/AddNote";
 import EditNote from "./components/EditView/EditView";
 import SignIn from "./components/Auth/SignIn";
 import SignUp from "./components/Auth/SignUp";
+import MyNotes from "./components/ListView/MyNotes";
 import { Route } from "react-router-dom";
 import "./App.css";
 
@@ -18,16 +19,19 @@ class App extends Component {
               <SideBar />
           </div>
           <div className="App-right">
-            <Route path="/" exact component={ListView} />
+            <Route path="/" exact component={MyNotes} />
             <Route path="/Add-Note" component={AddNote} />
             <Route path="/Edit-Note/:index" component={EditNote} />
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
+            <Route path="/All-Notes" component={ListView}/>
           </div>
         </div>
     );
   }
 }
+
+            //above is a lifehack, listview needs to be renamed all-notes
 
 export default App;
 
