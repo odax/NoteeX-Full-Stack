@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { addNote } from '../../actions';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 class AddNote extends Component {
     constructor(props) {
@@ -60,6 +60,9 @@ class AddNote extends Component {
                                 <button>Submit</button>
                             </div>
                         </form>
+                        <Link to='/'>
+                        <button> Cancel </button>
+                        </Link>
                     </div>
                 </div>
             </div>
