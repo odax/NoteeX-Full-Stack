@@ -78,3 +78,10 @@ h2 {
     font-size: 11px;
     color: teal;
 }
+
+.button-container {
+    display: flex;
+    width: 250px;
+    margin-left: 25px;
+    justify-content: space-between;
+}

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 class ListView extends Component {
   // this basically says that if the new props are different, re-render
@@ -23,6 +24,10 @@ class ListView extends Component {
     return (
       <div className="list-view">
         <h2>Notes:</h2>
+        <div className='button-container'>
+          <Button variant='contained' color='primary' className="myNotes-button">My Notes</Button>
+          <Button variant='contained' color='primary' className='publicNotes-button'>All Notes</Button>
+        </div>
         <div className="notes">
           {this.props.notes && this.props.notes.map((note, i) => {
             const { id, title, text, completed, authorFirstName, authorLastName, createdAt, authorId } = note;
@@ -35,8 +40,6 @@ class ListView extends Component {
     );
   }
 }
-
-//was trying to add delete note feature, need to pass custom id of note to the component above..
 
 const mapStateToProps = state => {
   console.log(state);
