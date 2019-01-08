@@ -8,9 +8,11 @@ import './side-bar.css';
 const LoggedIn = (props) => {
     return (
       <div>
+        <div className='button_container'>
         <Link to="/Add-Note">
           <Button variant='contained' color='primary' className="btn-no-underline">+ Add New Note</Button>
         </Link>
+        </div>
         <div className='initials'>
           {props.profile.initials}
         </div>

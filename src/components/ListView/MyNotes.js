@@ -25,15 +25,15 @@ class MyNotes extends Component {
 
     return (
       <div className="list-view">
-        <h2>My Notes:</h2>
         <div className='button-container'>
           <Link to='/'>
             <Button variant='contained' disabled='true' color='primary' className="myNotes-button">My Notes</Button>
           </Link>
           <Link to ='All-Notes'>
-            <Button variant='contained' color='primary' className='publicNotes-button'>All Notes</Button>
+            <Button variant='contained' color='primary' className='publicNotes-button'>All Public Notes</Button>
           </Link>
         </div>
+        <h2>My Notes:</h2>
         <div className="notes">
           {this.props.notes && this.props.notes.map((note, i) => {
             const { id, title, text, completed, authorFirstName, authorLastName, createdAt, authorId } = note;
