@@ -36,10 +36,10 @@ class MyNotes extends Component {
         <h2>My Notes:</h2>
         <div className="notes">
           {this.props.notes && this.props.notes.map((note, i) => {
-            const { id, title, text, completed, authorFirstName, authorLastName, createdAt, authorId } = note;
+            const { id, title, text, completed, authorFirstName, authorLastName, createdAt, authorId, publicNote } = note;
             if (authorId === this.props.auth.uid) {
             return (
-              <Note key={id} auth={auth} authorId={authorId} id={id} index={i} title={title} text={text} completed={completed} history={history} name={authorFirstName + ' ' + authorLastName} time={createdAt} />
+              <Note key={id} publicNote={publicNote} auth={auth} authorId={authorId} id={id} index={i} title={title} text={text} completed={completed} history={history} name={authorFirstName + ' ' + authorLastName} time={createdAt} />
             );
             } // yes, this is hacky. Bad because it loads all documents.
           })}

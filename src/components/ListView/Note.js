@@ -19,7 +19,8 @@ class Note extends Component {
       id,
       name,
       time,
-      authorId
+      authorId,
+      publicNote
     } = this.props;
     let deletePlaceholder;
     if (auth.uid !== authorId) {
@@ -36,6 +37,12 @@ class Note extends Component {
         X
       </button>;
     }
+    let publicThing;
+    if (publicNote === true) {
+      publicThing = <p>Public</p>;
+    } else {
+      publicThing = null;
+    }
     return (
       <div
         className="note"
@@ -48,6 +55,7 @@ class Note extends Component {
       >
         <div className="note12">
           <h3 style={{ opacity: completed ? 0.25 : 1 }}>{title}</h3>
+          {publicThing}
           <div className="buttons">
             <button
               onClick={e => {

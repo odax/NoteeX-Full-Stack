@@ -19,7 +19,7 @@ class AddNote extends Component {
     e.preventDefault();
     const { title, text } = this.state;
     if (title !== "" && text !== "") {
-      const newNote = { title, text, completed: false, public: this.state.isChecked };
+      const newNote = { title, text, completed: false, publicNote: this.state.isChecked };
       this.props.addNote(newNote);
       this.props.history.push("/"); //history.push is an easy way to update the current route
     }
