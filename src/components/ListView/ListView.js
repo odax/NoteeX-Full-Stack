@@ -47,7 +47,7 @@ class ListView extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
+  console.log(state, 'this is the one in the list view!');
   return {
     notes: state.firestore.ordered.notes,
     auth: state.firebase.auth
@@ -57,6 +57,6 @@ const mapStateToProps = state => {
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    { collection: 'notes' }
+    { collection: 'notes', where: ['publicNote', '==', true]  }
   ])
 )(ListView);
