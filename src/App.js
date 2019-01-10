@@ -14,24 +14,24 @@ class App extends Component {
     return (
       //app code is split up betwee the left sidebar and the right display component
       //right display component will update via react-router-dom
-        <div className="App">
-          <div className="App-left">
-              <SideBar />
-          </div>
-          <div className="App-right">
-            <Route path="/" exact component={MyNotes} />
-            <Route path="/Add-Note" component={AddNote} />
-            <Route path="/Edit-Note/:index" component={EditNote} />
-            <Route path="/signin" component={SignIn} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/All-Notes" component={ListView}/>
-          </div>
+      <div className="App">
+        <div className="App-left">
+          <SideBar />
         </div>
+        <div className="App-right">
+          <Route path="/" exact component={MyNotes} />
+          <Route path="/Add-Note" component={AddNote} />
+          <Route path="/Edit-Note/:index" component={EditNote} />
+          <Route path="/signin" component={SignIn} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/All-Notes" component={ListView} />
+        </div>
+      </div>
     );
   }
 }
 
-            //above is a lifehack, listview needs to be renamed all-notes
+//above is a lifehack, listview needs to be renamed all-notes
 
 export default App;
 

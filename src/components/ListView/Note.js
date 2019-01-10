@@ -23,19 +23,39 @@ class Note extends Component {
       publicNote
     } = this.props;
     let deletePlaceholder;
+    let completePlaceholder;
     if (auth.uid !== authorId) {
-        deletePlaceholder =  null;
+      deletePlaceholder = null;
+      completePlaceholder = null;
     } else {
-        deletePlaceholder =             
+      deletePlaceholder = (
         <button
-        className="delete"
-        onClick={e => {
-          e.stopPropagation();
-          deleteNote(id);
-        }}
-      >
-        X
-      </button>;
+          className="delete"
+          onClick={e => {
+            e.stopPropagation();
+            deleteNote(id);
+          }}
+        >
+          X
+        </button>
+      );
+      completePlaceholder = (
+        <button
+          onClick={e => {
+            e.stopPropagation();
+            markComplete(id, completed);
+          }}
+          className="complete"
+        >
+          {completed && (
+            <img
+              src={require("./check2.svg")}
+              alt="complete"
+              className="check"
+            />
+          )}
+        </button>
+      );
     }
     let publicThing;
     if (publicNote === true) {
@@ -57,22 +77,8 @@ class Note extends Component {
           <h3 style={{ opacity: completed ? 0.25 : 1 }}>{title}</h3>
           {publicThing}
           <div className="buttons">
-            <button
-              onClick={e => {
-                e.stopPropagation();
-                markComplete(id, completed);
-              }}
-              className="complete"
-            >
-              {completed && (
-                <img
-                  src={require("./check2.svg")}
-                  alt="complete"
-                  className="check"
-                />
-              )}
-            </button>
-                {deletePlaceholder}
+            {completePlaceholder}
+            {deletePlaceholder}
           </div>
         </div>
 
