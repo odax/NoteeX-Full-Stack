@@ -27,7 +27,7 @@ img {
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
     border: none;
-    color: darkgrey;
+    color: white;
     text-align: center;
     display: inline-block;
     font-size: 18px;
@@ -37,13 +37,13 @@ img {
     cursor: pointer;
     text-decoration: none;
     text-transform: uppercase;
-    background-color: teal; 
+    background-color: lightcoral; 
     width: 90%;
     margin-left: -1px;
 }
 
 .btn1:hover {
-    background-color: darkgrey;
+    background-color: yellow;
     color: teal;
 }
 
@@ -54,7 +54,7 @@ img {
         border-top-right-radius: 6px;
         border-bottom-right-radius: 6px;
         border: none;
-        color: darkgrey;
+        color: white;
         text-align: center;
         display: inline-block;
         font-size: 18px;
@@ -70,7 +70,7 @@ img {
 }
 
 .btn2:hover {
-    background-color: darkgrey;
+    background-color: yellow;
     color: darkred;
 }
 

@@ -11,9 +11,9 @@ export class SignIn extends Component {
     email: "",
     password: ""
   };
-  handleChange = event => {
+  handleChange = name => ({target: {value} }) => {
     this.setState({
-      [event.target.id]: event.target.value
+      [name]: value
     });
   };
   handleSubmit = event => {
@@ -28,16 +28,30 @@ export class SignIn extends Component {
     }
 
     return (
+      <div className="rightScreenContainer">
       <div className="SigninContainer">
         <form onSubmit={this.handleSubmit}>
           <h5>Sign In</h5>
           <div className="input-field">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" onChange={this.handleChange} />
+            <TextField
+              id="outlined-name"
+              label="email"
+              margin="normal"
+              variant="outlined"
+              onChange={this.handleChange('email')}
+              required='true'
+             />
           </div>
           <div className="input-field">
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" onChange={this.handleChange} />
+          <TextField
+              id="standard-password-input"
+              type="password"
+              label="password"
+              margin="normal"
+              variant="outlined"
+              onChange={this.handleChange('password')}
+              required='true'
+             />
           </div>
           <div className="input-field">
             <button>Login</button>
@@ -47,6 +61,7 @@ export class SignIn extends Component {
           </div>
         </form>
       </div>
+    </div>
     );
   }
 }

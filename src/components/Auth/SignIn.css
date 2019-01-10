@@ -1,40 +1,39 @@
-.SigninContainer {
-  margin-top: 30vh;
+.rightScreenContainer {
+  height: 85vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+}
+.rightScreenContainer .SigninContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   height: 20vh;
   align-items: center;
 }
-.SigninContainer form {
-  border: 3px solid white;
+.rightScreenContainer .SigninContainer form {
+  border: 1px solid lightcoral;
   border-radius: 5px;
   padding: 10px;
-  background-color: grey;
+  background-color: white;
 }
-.SigninContainer form h5 {
-  color: white;
+.rightScreenContainer .SigninContainer form h5 {
+  color: black;
   text-align: center;
+  margin-bottom: -14px;
 }
-.SigninContainer form .input-field {
+.rightScreenContainer .SigninContainer form .input-field {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
-.SigninContainer form .input-field label {
-  color: white;
-}
-.SigninContainer form .input-field input {
-  background-color: white;
-  margin-bottom: 10px;
-}
-.SigninContainer form .input-field button {
+.rightScreenContainer .SigninContainer form .input-field button {
   border: 1px solid white;
-  background: teal;
+  background: lightcoral;
   color: white;
-  border-radius: 2px;
+  border-radius: 3px;
   height: 10%;
 }
-.SigninContainer form .input-field button:hover {
+.rightScreenContainer .SigninContainer form .input-field button:hover {
   cursor: pointer;
 }
