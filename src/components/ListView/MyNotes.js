@@ -49,17 +49,35 @@ class MyNotes extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  console.log(state);
-  return {
-    notes: state.firestore.ordered.notes,
-    auth: state.firebase.auth
-  }
-}
+// const mapStateToProps = ({ firebase: { auth }, firestore: { ordered } }) => {
+//   return {
+//     notes: ordered.notes,
+//     auth
+//   }
+// }
 
 export default compose(
-  connect(mapStateToProps),
-  firestoreConnect([
-    { collection: 'notes' }
-  ])
-)(MyNotes);
+  // connect auth from redux state to the auth prop
+  connect(({ firebase: { auth } }) => ({ auth })),
+  // Create a listener for registrations where user.uid == current user uid
+  firestoreConnect(props => [
+    {
+      collection: 'notes',
+      where: ['authorId', '==', props.auth.uid],
+    },
+  ]),
+  connect(({ firestore: { ordered } }) => ({
+    notes: ordered.notes // an array list of registrations
+  }))
+)
+
+// export default compose(
+//   connect(mapStateToProps),
+//   firestoreConnect(props => [
+//     { collection: 'notes', where: [['authorId', '==', props.auth.uid]]  }
+//   ])
+// )(MyNotes);
+
+//the middle code is what i got from https://github.com/prescottprue/react-redux-firebase/issues/344
+//the commented out code above and below is what i had earlier. It seems to crash when i log out because the props.auth.uid is undefined then, and
+//for some reason the app is calling the firestoreConnect function when logged out??
