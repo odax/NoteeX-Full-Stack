@@ -1,40 +1,39 @@
-.SignupContainer {
-  margin-top: 30vh;
+.rightSideContainer {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.rightSideContainer .SignupContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 20vh;
+  height: 60%;
   align-items: center;
 }
-.SignupContainer form {
-  border: 3px solid white;
+.rightSideContainer .SignupContainer form {
   border-radius: 5px;
   padding: 10px;
-  background-color: grey;
+  background-color: white;
+  height: 100%;
 }
-.SignupContainer form h5 {
-  color: white;
+.rightSideContainer .SignupContainer form h5 {
+  color: black;
   text-align: center;
 }
-.SignupContainer form .input-field {
+.rightSideContainer .SignupContainer form .input-field {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
-.SignupContainer form .input-field label {
-  color: white;
-}
-.SignupContainer form .input-field input {
-  background-color: white;
-  margin-bottom: 10px;
-}
-.SignupContainer form .input-field button {
+.rightSideContainer .SignupContainer form .input-field button {
   border: 1px solid white;
-  background: teal;
+  background: lightcoral;
   color: white;
   border-radius: 2px;
   height: 10%;
 }
-.SignupContainer form .input-field button:hover {
+.rightSideContainer .SignupContainer form .input-field button:hover {
   cursor: pointer;
+  background: coral;
 }

@@ -43,7 +43,7 @@ img {
 }
 
 .btn1:hover {
-    background-color: yellow;
+    background-color: coral;
     color: teal;
 }
 
@@ -70,7 +70,7 @@ img {
 }
 
 .btn2:hover {
-    background-color: yellow;
+    background-color: red;
     color: darkred;
 }
 

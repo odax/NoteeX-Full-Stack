@@ -7,6 +7,7 @@ import SignIn from "./components/Auth/SignIn";
 import SignUp from "./components/Auth/SignUp";
 import MyNotes from "./components/ListView/MyNotes";
 import { Route } from "react-router-dom";
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import "./App.css";
 
 class App extends Component {

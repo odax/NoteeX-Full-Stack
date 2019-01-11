@@ -40,11 +40,13 @@ export class SignIn extends Component {
               variant="outlined"
               onChange={this.handleChange('email')}
               required='true'
+              className='googleText'
              />
           </div>
           <div className="input-field">
           <TextField
               id="standard-password-input"
+              classsName='googleText'
               type="password"
               label="password"
               margin="normal"

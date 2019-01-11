@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { signUp } from "../../actions";
+import TextField from "@material-ui/core/TextField";
 import "./SignUp.css";
 
 export class SignUp extends Component {
@@ -11,9 +12,9 @@ export class SignUp extends Component {
     firstname: "",
     lastname: ""
   };
-  handleChange = event => {
+  handleChange = name => ({ target: { value } }) => {
     this.setState({
-      [event.target.id]: event.target.value
+      [name]: value
     });
   };
   handleSubmit = event => {
@@ -28,32 +29,63 @@ export class SignUp extends Component {
     }
 
     return (
-      <div className="SignupContainer">
-        <form onSubmit={this.handleSubmit}>
-          <h5>Sign Up</h5>
-          <div className="input-field">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" onChange={this.handleChange} />
-          </div>
-          <div className="input-field">
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" onChange={this.handleChange} />
-          </div>
-          <div className="input-field">
-            <label htmlFor="firstName">First Name</label>
-            <input type="text" id="firstName" onChange={this.handleChange} />
-          </div>
-          <div className="input-field">
-            <label htmlFor="lastName">Last Name</label>
-            <input type="text" id="lastName" onChange={this.handleChange} />
-          </div>
-          <div className="input-field">
-            <button>Sign Up</button>
-            <div className="signup_error">
-              {authError ? <p> {authError} </p> : null}
+      <div className="rightSideContainer">
+        <div className="SignupContainer">
+          <form onSubmit={this.handleSubmit}>
+            <h5>Sign Up</h5>
+            <div className="input-field">
+              <TextField
+                id="outlined-name"
+                label="email"
+                margin="normal"
+                variant="outlined"
+                onChange={this.handleChange("email")}
+                required="true"
+                className="googleText"
+              />
             </div>
-          </div>
-        </form>
+            <div className="input-field">
+              <TextField
+                id="standard-password-input"
+                classsName="googleText"
+                type="password"
+                label="password"
+                margin="normal"
+                variant="outlined"
+                onChange={this.handleChange("password")}
+                required="true"
+              />
+            </div>
+            <div className="input-field">
+              <TextField
+                id="outlined-name"
+                label="firstname"
+                margin="normal"
+                variant="outlined"
+                onChange={this.handleChange("firstname")}
+                required="true"
+                className="googleText"
+              />
+            </div>
+            <div className="input-field">
+              <TextField
+                id="outlined-name"
+                label="lastname"
+                margin="normal"
+                variant="outlined"
+                onChange={this.handleChange("lastname")}
+                required="true"
+                className="googleText"
+              />
+            </div>
+            <div className="input-field">
+              <button>Sign Up</button>
+              <div className="signup_error">
+                {authError ? <p> {authError} </p> : null}
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

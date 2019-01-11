@@ -8,14 +8,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 20vh;
+  height: 300px;
   align-items: center;
 }
 .rightScreenContainer .SigninContainer form {
-  border: 1px solid lightcoral;
   border-radius: 5px;
   padding: 10px;
   background-color: white;
+  height: 100%;
 }
 .rightScreenContainer .SigninContainer form h5 {
   color: black;
@@ -32,8 +32,9 @@
   background: lightcoral;
   color: white;
   border-radius: 3px;
-  height: 10%;
+  height: 20px;
 }
 .rightScreenContainer .SigninContainer form .input-field button:hover {
   cursor: pointer;
+  background: coral;
 }
