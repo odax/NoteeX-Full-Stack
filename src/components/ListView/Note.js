@@ -59,7 +59,7 @@ class Note extends Component {
     }
     let publicThing;
     if (publicNote === true) {
-      publicThing = <p>Public</p>;
+      publicThing = <p className='publicCircle'>Public</p>;
     } else {
       publicThing = null;
     }
@@ -74,20 +74,26 @@ class Note extends Component {
         }}
       >
         <div className="note12">
-          <h3 style={{ opacity: completed ? 0.25 : 1 }}>{title}</h3>
-          {publicThing}
+        <p className='timeStamp'>{moment(time.toDate()).format("llll")}</p>
+
           <div className="buttons">
             {completePlaceholder}
             {deletePlaceholder}
           </div>
         </div>
 
+        <div>
+        <h3 style={{ opacity: completed ? 0.25 : 1 }}>{title}</h3>
+        </div>
+
         <div className="note22" style={{ opacity: completed ? 0.25 : 1 }}>
           <div className="divider" />
-          <p className="text">{text}</p>
-          <div className="author-date-divider">
-            <p>Posted by {name}</p>
-            <p>{moment(time.toDate()).format("llll")}</p>
+          <div className='noteAndFooter'>
+            <p className="text">{text}</p>
+            <div className="author-date-divider">
+              <p className='postedBy'>Posted by {name}</p>
+              {publicThing}
+            </div>
           </div>
         </div>
       </div>
