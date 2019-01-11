@@ -2,20 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { signOut } from "../../actions";
-import Button from '@material-ui/core/Button';
 import './side-bar.css';
 
 const LoggedIn = (props) => {
     return (
-      <div>
+      <div className='container'>
         <div className='button_container'>
         <Link to="/Add-Note">
-          <Button variant='contained' color='primary' className="btn-no-underline">+ Add New Note</Button>
+          <button className="btn1">+ Add New Note</button>
         </Link>
         </div>
-        <div className='initials'>
+        {/* <div className='initials'>
           {props.profile.initials}
-        </div>
+        </div> */}
         <button className="btn2" onClick={props.signOut}>Log Out</button>
       </div>
     );
