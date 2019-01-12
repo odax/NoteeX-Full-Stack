@@ -3,7 +3,7 @@ import { addNote } from "../../actions";
 import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import "./AddNote.css";
-import Switch from "@material-ui/core/Switch";
+import Button from "@material-ui/core/Button";
 
 class AddNote extends Component {
   constructor(props) {
@@ -60,7 +60,7 @@ class AddNote extends Component {
                   value={title}
                 />
               </div>
-              <div className="input">
+              <div className="input textarea">
                 <textarea
                   placeholder="Note Content"
                   onChange={e => this.setState({ text: e.target.value })}
@@ -83,11 +83,25 @@ class AddNote extends Component {
                 </label>
               </div>
               <div className="input">
-                <button>Submit</button>
+              <Button
+              variant="contained"
+              color="primary"
+              className="myNotes-button"
+              type="submit"
+              value="submit"
+            >
+              Create
+            </Button>
               </div>
             </form>
             <Link to="/">
-              <button> Cancel </button>
+            <Button
+              variant="contained"
+              color="secondary"
+              className="myNotes-button"
+            >
+              Cancel
+            </Button>
             </Link>
           </div>
         </div>

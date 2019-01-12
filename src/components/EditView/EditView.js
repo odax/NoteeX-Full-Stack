@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { updateNote } from "../../actions";
 import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 import "./EditView.css";
 
@@ -77,10 +78,24 @@ class EditNote extends Component {
               value={text}
               placeholder={"Update your text"}
             />
-            <button>Submit</button>
+                          <Button
+              variant="contained"
+              color="primary"
+              className="myNotes-button"
+              type="submit"
+              value="submit"
+            >
+              Update
+            </Button>
           </form>
           <Link to="/">
-            <button> Cancel </button>
+          <Button
+              variant="contained"
+              color="secondary"
+              className="myNotes-button"
+            >
+              Cancel
+            </Button>
           </Link>
         </div>
       </div>
