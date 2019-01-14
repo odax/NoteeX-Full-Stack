@@ -1,10 +1,14 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { compose } from "redux";
+import { firestoreConnect } from "react-redux-firebase";
 import { signOut } from "../../actions";
+import LoggedInFeed from "./LoggedInFeed";
 import './side-bar.css';
 
-const LoggedIn = (props) => {
+class LoggedIn extends Component {
+  render() {
     return (
       <div className='container'>
         <div className='button_container'>
@@ -12,13 +16,18 @@ const LoggedIn = (props) => {
           <button className="btn1">+ Add New Note</button>
         </Link>
         </div>
-        {/* <div className='initials'>
-          {props.profile.initials}
-        </div> */}
-        <button className="btn2" onClick={props.signOut}>Log Out</button>
+        {/* <LoggedInFeed notifications={this.props.notifications}/> */}
+        <button className="btn2" onClick={this.props.signOut}>Log Out</button>
       </div>
     );
+      }
   }
+
+// const mapStateToProps = (state) => {
+//   return {
+//     notifications: state.firestore.ordered.notifications
+//   }
+// }
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -26,4 +35,12 @@ const mapDispatchToProps = (dispatch) => {
         //all the code needed for firebase to sign out
     }
 }
-export default connect(null, mapDispatchToProps)(LoggedIn)
+
+// export default compose (
+//   connect(mapStateToProps, mapDispatchToProps),
+//   firestoreConnect([
+//     { collection: 'notifications', limit: 3 }
+//   ])
+// )(LoggedIn);
+
+export default connect( null, mapDispatchToProps ) (LoggedIn);
