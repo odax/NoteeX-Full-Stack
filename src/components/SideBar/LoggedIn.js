@@ -16,18 +16,18 @@ class LoggedIn extends Component {
           <button className="btn1">+ Add New Note</button>
         </Link>
         </div>
-        <LoggedInFeed notifications={this.props.notifications}/>
+        {/* <LoggedInFeed notifications={this.props.notifications}/> */}
         <button className="btn2" onClick={this.props.signOut}>Log Out</button>
       </div>
     );
       }
   }
 
-const mapStateToProps = (state) => {
-  return {
-    notifications: state.firestore.ordered.notifications
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     notifications: state.firestore.ordered.notifications
+//   }
+// }
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -36,11 +36,11 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default compose (
-  connect(mapStateToProps, mapDispatchToProps),
-  firestoreConnect([
-    { collection: 'notifications', limit: 3 }
-  ])
-)(LoggedIn);
+// export default compose (
+//   connect(mapStateToProps, mapDispatchToProps),
+//   firestoreConnect([
+//     { collection: 'notifications', limit: 3 }
+//   ])
+// )(LoggedIn);
 
-// export default connect( null, mapDispatchToProps ) (LoggedIn);
+export default connect( null, mapDispatchToProps ) (LoggedIn);
