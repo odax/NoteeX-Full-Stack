@@ -9,8 +9,8 @@ export class SignUp extends Component {
   state = {
     email: "",
     password: "",
-    firstname: "",
-    lastname: ""
+    firstName: "",
+    lastName: ""
   };
   handleChange = name => ({ target: { value } }) => {
     this.setState({
@@ -62,7 +62,7 @@ export class SignUp extends Component {
                 label="firstname"
                 margin="normal"
                 variant="outlined"
-                onChange={this.handleChange("firstname")}
+                onChange={this.handleChange("firstName")}
                 required="true"
                 className="googleText"
               />
@@ -73,7 +73,7 @@ export class SignUp extends Component {
                 label="lastname"
                 margin="normal"
                 variant="outlined"
-                onChange={this.handleChange("lastname")}
+                onChange={this.handleChange("lastName")}
                 required="true"
                 className="googleText"
               />
