@@ -6,8 +6,7 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import { Redirect } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import { Route, Link } from "react-router-dom";
-import AllNotes from "./AllNotes";
+import { Link } from "react-router-dom";
 
 class MyNotes extends Component {
   // this basically says that if the new props are different, re-render
@@ -33,7 +32,7 @@ class MyNotes extends Component {
           <Link to="/">
             <Button
               variant="contained"
-              disabled="true"
+              disabled={true}
               color="primary"
               className="myNotes-button"
             >
@@ -82,7 +81,7 @@ class MyNotes extends Component {
                     time={createdAt}
                   />
                 );
-              } // yes, this is hacky. Bad because it loads all documents.
+              } return null;
             })}
         </div>
       </div>
@@ -91,7 +90,6 @@ class MyNotes extends Component {
 }
 
 const mapStateToProps = ({ firebase: { auth }, firestore: { ordered } }) => {
-  console.log(ordered.notes, "this is the one in the myNotes view");
   return {
     notes: ordered.notes,
     auth

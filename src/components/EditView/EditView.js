@@ -39,7 +39,7 @@ class EditNote extends Component {
     // }, match.params.index);
     //
     //above is old logic that relies on text being placeholders in the edit-note view
-    if (title !== "" && text !== "") {
+    if (title !== "" && title.length <= 20 && text !== "") {
       this.props.updateNote(selectedId, title, text);
       this.props.history.push("/");
     }
@@ -51,9 +51,8 @@ class EditNote extends Component {
   };
 
   render() {
-    const { notes, match, auth } = this.props;
+    const { auth } = this.props;
     const { title, text } = this.state;
-    const note = notes[match.params.index];
 
     if (!auth.uid) {
       return <Redirect to="/signin" />;
@@ -66,14 +65,11 @@ class EditNote extends Component {
           <form onSubmit={this.submit}>
             <input
               type="text"
-              //{this.props.notes[this.props.match.params.index].title} = note.title
-              // placeholder={'hello'}
               onChange={e => this.setState({ title: e.target.value })}
               value={title}
-              placeholder={"Update your title"}
+              placeholder={"Update your title (20 chars or less)"}
             />
             <textarea
-              // placeholder={note.text}
               onChange={e => this.setState({ text: e.target.value })}
               value={text}
               placeholder={"Update your text"}

@@ -18,7 +18,7 @@ class AddNote extends Component {
   submit = e => {
     e.preventDefault();
     const { title, text } = this.state;
-    if (title !== "" && text !== "") {
+    if (title !== "" && title.length <= 20 && text !== "") {
       const newNote = { title, text, completed: false, publicNote: this.state.isChecked };
       this.props.addNote(newNote);
       this.props.history.push("/"); //history.push is an easy way to update the current route
@@ -55,7 +55,7 @@ class AddNote extends Component {
               <div className="input">
                 <input
                   type="text"
-                  placeholder="Note Title"
+                  placeholder="Note Title (20 chars or less)"
                   onChange={e => this.setState({ title: e.target.value })}
                   value={title}
                 />

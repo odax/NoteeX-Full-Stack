@@ -10,8 +10,8 @@ export default class LoggedInFeed extends Component {
         <ul className='list'>
           { notifications && notifications.map( item => {
               return (
-                <div>
-                  <li key={item.id}>
+                <div key={item.id}>
+                  <li>
                     <span>{item.user + ' '}</span>
                     <span>{item.content + ' '}
                         {moment(item.time.toDate()).fromNow() + '.'}

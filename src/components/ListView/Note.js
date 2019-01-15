@@ -10,7 +10,6 @@ class Note extends Component {
       title,
       text,
       completed,
-      index,
       auth,
       markComplete,
       selectNoteForEdit,

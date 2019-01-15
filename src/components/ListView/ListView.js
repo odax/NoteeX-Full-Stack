@@ -6,7 +6,7 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import { Redirect } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class ListView extends Component {
   // this basically says that if the new props are different, re-render
@@ -40,7 +40,7 @@ class ListView extends Component {
           </Link>
           <Link to="All-Notes">
             <Button
-              disabled="true"
+              disabled={true}
               variant="contained"
               color="primary"
               className="publicNotes-button"

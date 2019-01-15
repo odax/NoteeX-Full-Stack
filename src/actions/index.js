@@ -1,5 +1,3 @@
-import { storage } from "firebase";
-
 export const ADD_NOTE = "ADD_NOTE";
 export const ADD_NOTE_ERROR = "ADD_NOTE_ERROR";
 export const UPDATE_NOTE = "UPDATE_NOTE";
@@ -72,8 +70,6 @@ export const markComplete = (docid, completed) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     //make async call to database
     const firestore = getFirestore();
-    const profile = getState().firebase.profile;
-    const authorId = getState().firebase.auth.uid;
     firestore
       .collection("notes")
       .doc(`${docid}`)
@@ -100,8 +96,6 @@ export const deleteNote = docid => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     //make async call to database
     const firestore = getFirestore();
-    const profile = getState().firebase.profile;
-    const authorId = getState().firebase.auth.uid;
     firestore
       .collection("notes")
       .doc(`${docid}`)
