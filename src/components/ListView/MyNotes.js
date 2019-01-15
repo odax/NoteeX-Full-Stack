@@ -101,7 +101,7 @@ const mapStateToProps = ({ firebase: { auth }, firestore: { ordered } }) => {
 export default compose(
   connect(mapStateToProps),
   firestoreConnect(props => [
-    { collection: "notes", where: [["authorId", "==", props.auth.uid || null]] }
+    { collection: "notes", where: [["authorId", "==", props.auth.uid || null]]}
   ])
 )(MyNotes);
 

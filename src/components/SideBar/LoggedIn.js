@@ -39,7 +39,7 @@ const mapDispatchToProps = (dispatch) => {
 export default compose (
   connect(mapStateToProps, mapDispatchToProps),
   firestoreConnect([
-    { collection: 'notifications', limit: 3 }
+    { collection: 'notifications', limit: 3, orderBy: ['time', 'desc'] }
   ])
 )(LoggedIn);
 

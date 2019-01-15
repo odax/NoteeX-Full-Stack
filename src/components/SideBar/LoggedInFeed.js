@@ -1,20 +1,23 @@
 import React, { Component } from 'react'
 import moment from 'moment';
+import './side-bar.css';
 export default class LoggedInFeed extends Component {
   render() {
       const {notifications} = this.props;
     return (
       <div>
-        <ul>
+        <h5>Notifications</h5>
+        <ul className='list'>
           { notifications && notifications.map( item => {
               return (
+                <div>
                   <li key={item.id}>
-                    <span>{item.user}</span>
-                    <span>{item.content}</span>
-                    <div>
-                        {moment(item.time.toDate()).fromNow()}
-                    </div>
+                    <span>{item.user + ' '}</span>
+                    <span>{item.content + ' '}
+                        {moment(item.time.toDate()).fromNow() + '.'}
+                    </span>
                   </li>
+                </div>
               )
           })}
         </ul>
