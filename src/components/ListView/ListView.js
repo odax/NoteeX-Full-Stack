@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 
 class ListView extends Component {
-  // this basically says that if the new props are different, re-render
+  //if the new props are different, re-render
   shouldComponentUpdate = nextProps => {
     if (
       nextProps.notes !== this.props.notes ||
@@ -96,4 +96,5 @@ const mapStateToProps = state => {
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([{ collection: "notes", where: ["publicNote", "==", true] }])
+  //query and get data from firestore collection "notes" that is public
 )(ListView);

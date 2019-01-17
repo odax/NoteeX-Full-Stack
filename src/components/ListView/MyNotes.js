@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 
 class MyNotes extends Component {
-  // this basically says that if the new props are different, re-render
+  //if the new props are different, re-render
   shouldComponentUpdate = nextProps => {
     if (
       nextProps.notes !== this.props.notes ||
@@ -81,7 +81,8 @@ class MyNotes extends Component {
                     time={createdAt}
                   />
                 );
-              } return null;
+              }
+              return null;
             })}
         </div>
       </div>
@@ -99,7 +100,9 @@ const mapStateToProps = ({ firebase: { auth }, firestore: { ordered } }) => {
 export default compose(
   connect(mapStateToProps),
   firestoreConnect(props => [
-    { collection: "notes", where: [["authorId", "==", props.auth.uid || null]]}
+    { collection: "notes", where: [["authorId", "==", props.auth.uid || null]] }
+    //query and get data from firestore "notes" collection where the authorId matches the current user logged in uid
+    //or null is set incase logged out and uid doesn't exist
   ])
 )(MyNotes);
 

@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom"; //removed {render}
+import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -14,6 +14,8 @@ import fbConfig from "./config/fbConfig";
 
 const store = createStore(
   rootReducer,
+  //compose allows application of several store enhancers in a row
+  //allows for "deeply nested function transformations without the rightward drift" (redux.js.org/api/compose)
   compose(
     applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
     reduxFirestore(fbConfig),

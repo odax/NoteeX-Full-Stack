@@ -31,8 +31,6 @@ class App extends Component {
   }
 }
 
-//above is a lifehack, listview needs to be renamed all-notes
-
 export default App;
 
 //so normally in redux you would use <Route exact path = '/' component ={ListView}
