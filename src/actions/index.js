@@ -15,7 +15,7 @@ export const SELECTED_NOTE_FOR_EDIT = "SELECTED_NOTE_FOR_EDIT";
 
 //here action types are redefined in order to allow easy troubleshooting if mispelled
 
-
+//called when a use adds a note
 export const addNote = note => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     //make async call to database
@@ -43,6 +43,10 @@ export const addNote = note => {
   };
 };
 
+//above is the primary pattern for handling actions in this file
+//import firestore, send request with data object, on response dispatch action any required input or response data
+
+//called when a user updates a note
 export const updateNote = (docid, newTitle, newText) => {
   return (dispatch, getState, {getFirebase, getFirestore }) => {
     const firestore = getFirestore();
@@ -66,6 +70,7 @@ export const updateNote = (docid, newTitle, newText) => {
   }
 };
 
+//called when a user hits checkbox to mark a note complete or the opposite
 export const markComplete = (docid, completed) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     //make async call to database
@@ -92,6 +97,9 @@ export const markComplete = (docid, completed) => {
   };
 };
 
+//called when a user doesn't want a note anymore
+//document has to match user uid (handled by only rendering the delete button when note id equals user's logged in uid. This is in MyNotes.js or ListView.js.
+//Security rules are set up in google firebases security rule component online, which prevents anyone from deleting anyones notes, or checking off)
 export const deleteNote = docid => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     //make async call to database
@@ -112,6 +120,8 @@ export const deleteNote = docid => {
   };
 };
 
+//when you click a note, this is a workaround for not being able to pass props down from the list-view (or my notes) to the edit notes.
+//In this work around I hold on to the data with the redux store and apply it to the edit note component
 export const selectNoteForEdit = (id, title, text) => {
   return (dispatch) => {
     dispatch({
